@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<title>McDonogh Robotics FRC Team 4505</title>
+	<style>
+		body	{font-family: "tahoma"; }
+		.slides	{display:none; width:100%; }
+	</style>
+	<script>
+		var myIndex = 0;		
+
+		function carousel() {
+    		var i;
+    		var x = document.getElementsByClassName("slides");
+    		for (i = 0; i < x.length; i++) {
+       			x[i].style.display = "none";
+    		}
+    		myIndex++;
+    		if (myIndex > x.length) {
+    			myIndex = 1
+    		}
+   	 		x[myIndex-1].style.display = "block";
+    		setTimeout(carousel, 9000); // Change image every 2 seconds
+		}
+
+		var onDeck = 0;
+		function w3_open() {
+    		document.getElementById("mySidenav").style.display = "block";
+		}
+		function w3_close() {
+   			document.getElementById("mySidenav").style.display = "none";
+		}
+		function w3_onDeck(sel) {
+			var x = document.getElementById(onDeck);
+			if (x != null)
+				x.style.display = "none";
+			document.getElementById(sel).style.display = "block";
+			onDeck = sel;
+			w3_close();
+		}
+
+	</script>
+
+</head>
+<body>
+
+	<header class="w3-container w3-black w3-text-deep-orange">
+		<section class="w3-twothird w3-section">
+			<h1 class="w3-center">McDonogh Robotics<br/>
+				<span class="w3-large w3-wide">FRC Team 4505</span>
+			</h1>
+		</section>
+		<section class="w3-third w3-section w3-hide-small" style="max-width:200px"/>
+			<img class="slides w3-circle w3-animate-fading" src="images/headers/two.jpg"/>
+			<img class="slides w3-circle w3-animate-fading" src="images/headers/three.jpg"/>
+			<img class="slides w3-circle w3-animate-fading" src="images/headers/four.jpg"/>
+			<script>carousel();</script>
+		</section>
+	</header>
+
+	<nav class="w3-navbar w3-container w3-text-deep-orange">
+		<a class="w3-hover-black" href="">Home</a>
+		<a class="w3-hover-black" href="">Calendar</a>
+		<a class="w3-hover-black" href="http://mcdonogh.instructure.com" target="_blank">Canvas</a>
+		<a class="w3-hover-black" href="http://www.firstinspires.org" target="_blank">FIRST</a>
+		<a class="w3-hover-black" href="">Donate</a>
+	</nav>
+
+	<section class="w3-container w3-deep-orange w3-text-black">
+		<section class="w3-twothird w3-section">
+			<h3>The Latest</h3>
+			<img class="w3-card-16 w3-image w3-hide-small" src="images/galleries/Woozled/BoB.jpg" title="Winning the BoB">
+			<hr/>
+			<p class="w3-margin-right">McDonogh Robotics will host the 2017 Northern Maryland Competition at McDonogh School on March
+				 17-19. 40 teams (including the Eagles) have registered to participate in the event to take place
+				 in the R/L. Plan to spend a day with us!</p>
+		</section>
+		<section class="w3-third w3-card-16">
+
+			<nav class="w3-sidenav w3-collapse w3-black w3-card-2" style="width:100px;" id="mySidenav">
+  				<a href="javascript:void(0)" onclick="w3_close()" class="w3-closenav w3-large w3-hide-large">Close &times;</a>
+
+  				<a href="javascript:void(0)" onclick="w3_onDeck('Sponsors')">Sponsors</a>
+  				<a href="javascript:void(0)" onclick="w3_onDeck('Galleries')">Galleries</a>
+  				<a href="javascript:void(0)" onclick="w3_onDeck('Videos')">Videos</a>
+			</nav>
+
+			<div class="w3-main" style="margin-left:100px">
+				<header class="w3-container w3-black">
+  					<span class="w3-opennav w3-xlarge w3-hide-large" onclick="w3_open()">&#9776;</span>
+				</header>
+
+				<div class="w3-container" id="Galleries" style="display:none">
+					<script>		
+					var slideIndex = 0;
+					var galleryMembers;
+
+					function setGallery (ndx) {
+						galleryMembers = galleries[ndx];
+						slideIndex = 0;
+						document.getElementById('gModal').style.display = 'block';
+						plusSlide(1);
+					}
+
+					function plusSlide(n) {
+						slideIndex += n;
+						if (slideIndex < 1)
+							slideIndex = galleryMembers.length - 1;
+						else
+							if (slideIndex >= galleryMembers.length-1)
+								slideIndex = 1;
+						showSlide();
+					}
+
+					function showSlide() {
+						document.getElementById('gallery').src = galleryMembers[0] + galleryMembers[slideIndex] + '.jpg';
+					}	
+
+					var galleries = [['images/galleries/Rookies/',
+									  'Building', 'Championship', 'Measuring', 'Programming', 'Hotel', 'Unofficial'],
+									 ['images/galleries/Totes/', 
+									  'Captain', 'MyrtleBeach', 'Regional', 'Romulus', 'Romulus2'],
+									 ['images/galleries/Woozled/', 
+									  'AllHands', 'Architect', 'BAH', 'BoB', 'DoD', 'FatHeads']
+									];
+					</script>
+
+					<h3>Photo Galleries</h3>
+
+					<button onclick="setGallery(0)" 
+							class="w3-btn-block w3-deep-orange w3-border">Rookie Year (2013)</button>
+					<button onclick="setGallery(1)" 
+							class="w3-btn-block w3-deep-orange w3-border">Recycle Rush (2015)</button>					
+					<button onclick="setGallery(2)" 
+							class="w3-btn-block w3-deep-orange w3-border">Stronghold (2016)</button>
+
+					<!-- The Modal -->
+					<div id="gModal" class="w3-modal">
+  						<div class="w3-modal-content">
+   							<div class="w3-container">
+ 						        <span onclick="document.getElementById('gModal').style.display='none'" 
+      								  class="w3-closebtn">&times;</span>
+      							<div class="w3-container">
+									<div class="w3-content w3-display-container">
+  										<img id="gallery" src="" width="100%"/>
+
+										<a class="w3-btn-floating w3-display-left" onclick="plusSlide(-1)">&#10094;</a>
+										<a class="w3-btn-floating w3-display-right" onclick="plusSlide(1)">&#10095;</a>
+									</div>
+								</div>
+    						</div>
+  						</div>
+					</div>
+				</div>
+
+				<div class="w3-container" id="Videos" style="display:none">
+					<script>
+						function openVid (yId) {
+							document.getElementById("vModal").style.display = 'block';
+							var f = document.getElementById('vframe');
+							f.src = "https://www.youtube.com/embed/" + yId;
+						}
+
+						function closeVid() {
+							document.getElementById('vframe').src = "";
+							document.getElementById("vModal").style.display = 'none';
+						}
+					</script>
+					
+					<h3>Videos</h3>
+					<button onclick="openVid('5Yk4K0Fyfck')" 
+							class="w3-btn-block w3-deep-orange w3-border">BAH Discovery Begins Within (1/2)</button>
+					<button onclick="openVid('DHuZ6_d4YQQ')" 
+							class="w3-btn-block w3-deep-orange w3-border">BAH Discovery Begins Within (2/2)</button>
+					<button onclick="openVid('LcnuUE1ukmQ')" 
+							class="w3-btn-block w3-deep-orange w3-border">2016 Season Wrap</button>
+					<button onclick="openVid('8SnbGT8p2VI')" 
+							class="w3-btn-block w3-deep-orange w3-border">2013 Season Wrap</button>
+
+					<!-- The Modal -->
+					<div id="vModal" class="w3-modal">
+  						<div class="w3-modal-content">
+   							<div class="w3-container">
+ 						        <span onclick="closeVid()" class="w3-closebtn">&times;</span>
+      							<iframe id="vframe" width="500" height="375" src="https://www.youtube.com"></iframe>
+    						</div>
+  						</div>
+					</div>
+
+				</div>
+				<div class="w3-container" id="Sponsors" style="display:none">
+  					<p>In this example, the side navigation will always be displayed on desktop computers and laptops (screens wider than 992px), and hidden on tablets and mobile phones (screens that are less than 992px wide).</p>
+ 					<p>On tablets and mobile phones the side navigation is replaced with a menu icon that opens the navigation pane when clicked on: it will then overlay/sit on top of the page content.</p>
+  					<p><b>Resize the browser window to understand how it works.</b></p>
+				</div>
+			</div>
+
+			<script>
+				w3_onDeck('Sponsors');
+			</script>
+		</section>
+	</section>
+	<footer class="w3-container w3-black w3-text-deep-orange">
+		<address>
+			8600 McDonogh Road<br/>
+			Owings Mills, Maryland 21117
+		</address>	
+	</footer>
+
+</body>
+</html>
